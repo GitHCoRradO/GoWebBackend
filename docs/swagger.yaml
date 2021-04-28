@@ -1,0 +1,54 @@
+definitions:
+  response.LoginResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /user/createUserWithExistingName:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+        "404":
+          description: JSON form error
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+      summary: Test New user creation
+  /user/login:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+        "404":
+          description: unauthorized
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+      summary: Super User login TODO?
+  /user/newLogin:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+        "404":
+          description: JSON form error
+          schema:
+            $ref: '#/definitions/response.LoginResponse'
+      summary: New user creation
+swagger: "2.0"
