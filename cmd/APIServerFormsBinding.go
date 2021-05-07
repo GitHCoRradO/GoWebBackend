@@ -61,7 +61,7 @@ func main() {
 			return
 		}
 		fmt.Println("%#v", h)
-		c.File("/Users/luolingxiao/projects/myrepos/fake-ADMagic/log/test-file.log")
+		c.File("")
 	})
 	 */
 

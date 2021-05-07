@@ -15,6 +15,7 @@ func AddGroupUser(r *gin.Engine) {
 	group.POST("/login", loginJSON)
 	group.POST("/newLogin", createNewUser)
 	group.POST("/createUserWithExistingName", createUserWithExistingName)
+	group.POST("/enter-bankcard", enterBankCardInfo)
 }
 
 
@@ -94,5 +95,17 @@ func createUserWithExistingName(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, response.LoginResponse{Status: fmt.Sprintf("Welcome %s!", newUser.User)})
 
+
+}
+
+func enterBankCardInfo(c *gin.Context) {
+	var json request.Bankcard
+
+	if err := c.ShouldBindJSON(&json); err != nil {
+		c.JSON(404, response.LoginResponse{Status: "Form JSON error", Err: err.Error() })
+		return
+	}
+
+	c.JSON(200, json)
 
 }
